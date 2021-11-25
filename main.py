@@ -17,5 +17,5 @@ class UI:
 		self.button = Button(text="Play",background="lightgreen")
 
 		self.button.grid(row=0,column=0)
-
+print("test forge")
 Game=game()
