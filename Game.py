@@ -14,6 +14,10 @@ class Game:
 		self.interface.hideMainMenu()
 		self.interface.displayGameMenu()
 		self.bowl=Bowl(self.interface.getMenu())
-
+		root=self.interface.root
+		self.interface.getMenu().TkMenu.bind('<KeyPress-Left>',lambda event :self.bowl.move("left"))
+		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
+  
+		
 
 game=Game()

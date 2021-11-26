@@ -8,6 +8,8 @@ class Menu:
         self.TkMenu.withdraw()
         self.TkMenu.title(title)
         self.nom=nom
+        self.taille=[720,480]
+        self.TkMenu.minsize(self.taille[0],self.taille[1])
     def flush(self):
         for composant in self.listComponant:
             composant.destroy()
@@ -34,6 +36,7 @@ class MainMenu(Menu):
 			
 class GameMenu(Menu):
 
-	def __init__(self,game):
-		super().__init__(game,"game menu","gameMenu")
-		self.nom="game menu"
+    def __init__(self,game):
+        super().__init__(game,"game menu","gameMenu")
+        self.nom="game menu"
+        
