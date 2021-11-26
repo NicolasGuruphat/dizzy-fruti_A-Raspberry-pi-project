@@ -12,7 +12,7 @@ class Bowl:
         imageBowl = ImageTk.PhotoImage(master=self.TkMenu,file="sprite/sprite_bowl.png")
         canvas.image=imageBowl
         canvas.grid(row=0,column=0)
-        canvas.create_image(133,133, anchor=NW,image = canvas.image)
+        canvas.create_image(0,0, anchor=NW,image = canvas.image)
         
    
    
