@@ -27,7 +27,6 @@ class UI:
 
 	def hideMainMenu(self):
 		self.mainMenu.hide()
-	def getMenu(self):
 		
-		print("get menu")
+	def getMenu(self):
 		return self.menu

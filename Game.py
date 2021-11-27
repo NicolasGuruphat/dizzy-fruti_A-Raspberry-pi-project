@@ -1,6 +1,7 @@
 from tkinter import *
 from UI import UI
 from Bowl import Bowl
+
 class Game:
 
 	def __init__(self):
@@ -10,11 +11,10 @@ class Game:
 		
 	
 	def play(self):
-		print("jeu lancé")
+		print("Play !")
 		self.interface.hideMainMenu()
 		self.interface.displayGameMenu()
 		self.bowl=Bowl(self.interface.getMenu())
-		root=self.interface.root
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Left>',lambda event :self.bowl.move("left"))
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
   
