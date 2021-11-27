@@ -1,4 +1,4 @@
-from tkinter import Tk, Button
+from tkinter import Tk, Button, Canvas
 
 class Menu:
     def __init__(self,game,title,nom):
@@ -30,7 +30,7 @@ class MainMenu(Menu):
 
 	def __init__(self,game):
 		super().__init__(game,"main menu","mainMenu")
-		self.buttonPlay = Button(self.TkMenu,text="Play",background="lightgreen", command=lambda :game.play())
+		self.buttonPlay = Button(self.TkMenu,text="Play",background="lightgreen", height=40, width=120, command=lambda :game.play())
 		self.buttonPlay.grid(row=0,column=0)
 		
 			
@@ -39,4 +39,4 @@ class GameMenu(Menu):
     def __init__(self,game):
         super().__init__(game,"game menu","gameMenu")
         self.nom="game menu"
-        
+        self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0], height=self.taille[1])
