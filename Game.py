@@ -1,6 +1,7 @@
 from tkinter import *
 from UI import UI
 from Bowl import Bowl
+from Score import Score
 
 class Game:
 
@@ -8,8 +9,7 @@ class Game:
 		self.interface=UI(self)
 		self.interface.displayMainMenu()
 		self.interface.root.TkMenu.mainloop()
-		
-	
+		self.score=Score()
 	def play(self):
 		print("Play !")
 		self.interface.displayGameMenu()
@@ -20,5 +20,5 @@ class Game:
 	def win(self):
 		print("well play ! you won")
 		self.interface.displayWinMenu()
-		
+
 game=Game()

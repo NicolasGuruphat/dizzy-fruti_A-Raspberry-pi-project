@@ -46,8 +46,8 @@ class GameMenu(Menu):
         super().__init__(game,"game menu")
         self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0], height=self.taille[1])
         self.canvas.grid(row=0,column=0)
-        self.buttonWin= Button(self.canvas, text="win",command=lambda: game.win()) 
-        self.buttonWin.grid(row=1,column=1)
+        #self.buttonWin= Button(self.canvas, text="win",command=lambda: game.win()) 
+        #self.buttonWin.grid(row=1,column=1)
 
 class WinMenu(Menu):
 
