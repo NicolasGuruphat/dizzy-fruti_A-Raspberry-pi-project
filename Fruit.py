@@ -45,3 +45,7 @@ class Fruit :
 		
 		self.canvas.moveto(self.fuitItem,randomInt,0) #set random x position on top of the screen 
 
+		def moveDown(self) : 
+
+			self.menu.canvas.move(self.bowlItem,0,20-(self.taille)/8)
+
