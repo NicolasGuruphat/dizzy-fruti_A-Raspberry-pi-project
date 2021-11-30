@@ -25,17 +25,14 @@ class Game:
 	
 	def play(self):
 		print("Play !")
-		self.inGame = True
 		self.interface.hideMainMenu()
-		self.interface.root.TkMenu.mainloop()
-		self.score=Score()
-	def play(self):
-		print("Play !")
-		self.interface.displayGameMenu()
-		self.bowl=Bowl(self.interface.getMenu())
+        self.interface.displayGameMenu()
+        self.bowl=Bowl(self.interface.getMenu())
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Left>',lambda event :self.bowl.move("left"))
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
 		self.listFruit=[]
+		self.interface.root.TkMenu.mainloop()
+		self.score=Score()
 
 
 	def win(self):
