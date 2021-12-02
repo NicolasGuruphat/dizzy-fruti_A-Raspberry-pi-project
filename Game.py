@@ -12,27 +12,30 @@ class Game:
 		
 		self.interface=UI(self)
 		self.interface.displayMainMenu()
-		self.interface.root.mainloop()
-
+		self.interface.root.TkMenu.mainloop()
 
 
 	def fruitFactory(self) : 
 		print("132")
 		self.listFruit.append(Fruit(self.interface.getMenu()))
-		self.interface.getMenu().TkMenu.after(1000,self.fruitFactory())
 		
+
 
 	
 	def play(self):
 		print("Play !")
-		self.interface.hideMainMenu()
-        self.interface.displayGameMenu()
-        self.bowl=Bowl(self.interface.getMenu())
+		self.interface.displayGameMenu()
+		self.bowl=Bowl(self.interface.getMenu())
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Left>',lambda event :self.bowl.move("left"))
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
 		self.listFruit=[]
-		self.interface.root.TkMenu.mainloop()
 		self.score=Score()
+
+		while True:
+			self.interface.getMenu().TkMenu.update()
+			self.interface.getMenu().TkMenu.after(60,self.fruitFactory())
+			
+
 
 
 	def win(self):
