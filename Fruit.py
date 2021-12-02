@@ -9,7 +9,7 @@ class Fruit :
 		self.menu=menu
 		self.TkMenu=menu.TkMenu
 		self.canvas=self.menu.canvas
-
+		path="sprite/sprite_strawberry.png"
 		if 1 <= randomInt <= 10 : 
 			path = "sprite/sprite_strawberry.png"
 			self.taille = 24
@@ -36,9 +36,8 @@ class Fruit :
 
 
 
-		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file=path)
+		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file="sprite/sprite_watermelon.png")
 		self.canvas.image=self.imageFruit
-		self.canvas.grid(row=0,column=0)
 		self.fuitItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
 
 		randomInt=randint(0,menu.taille[0]-(self.taille))
