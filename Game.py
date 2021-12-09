@@ -27,7 +27,7 @@ class Game:
 				self.score.increment(fruit.point)
 				self.listFruit.remove(fruit)
 				print(self.score.value)
-			elif(Fruit.verifyCollisionGround(fruit)):
+			elif(Fruit.verifyCollisionGround(fruit,self.interface.menu.taille)):
 				self.listFruit.remove(fruit)
 				print("hit the ground")
 		self.interface.getMenu().TkMenu.after(60,self.fruitFalling)

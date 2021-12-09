@@ -58,9 +58,9 @@ class Fruit :
 
 
 	
-	def verifyCollisionGround(self):
+	def verifyCollisionGround(self,taille):
 		fruitPosition = self.canvas.coords(self.fruitItem)
-		return (fruitPosition[1]>440 )
+		return (fruitPosition[1]>taille[1]-self.taille )
 
 
 		
