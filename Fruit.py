@@ -49,17 +49,18 @@ class Fruit :
 		self.canvas.move(self.fruitItem,0,self.speed)
 
 
-	def verifyColision(self,bowl):
+	def verifyCollisionBowl(self,bowl):
 		
 		fruitPosition = self.canvas.coords(self.fruitItem)
 		bowlPosition = bowl.bowlPosition
-		if( (bowlPosition[0] < fruitPosition[0] < ( bowlPosition[0] + bowl.bowlSize[0]) )and (fruitPosition[1] > bowlPosition[1] )) :
-			print("test there is a colision")
-			return True
-		else:
-			#print("there's not a colision ")
-			return False
 
+		return ((bowlPosition[0] < fruitPosition[0] < ( bowlPosition[0] + bowl.bowlSize[0]) )and (fruitPosition[1] > bowlPosition[1] ))
+
+
+	
+	def verifyCollisionGround(self):
+		fruitPosition = self.canvas.coords(self.fruitItem)
+		return (fruitPosition[1]>440 )
 
 
 		

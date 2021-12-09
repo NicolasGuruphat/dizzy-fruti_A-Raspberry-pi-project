@@ -23,10 +23,13 @@ class Game:
 		for i in   reversed(range(len(self.listFruit))) :
 			fruit=self.listFruit[i]
 			Fruit.moveDown(fruit,self.interface)
-			if(Fruit.verifyColision(fruit,self.bowl)):
+			if(Fruit.verifyCollisionBowl(fruit,self.bowl)):
 				self.score.increment(fruit.point)
 				self.listFruit.remove(fruit)
 				print(self.score.value)
+			elif(Fruit.verifyCollisionGround(fruit)):
+				self.listFruit.remove(fruit)
+				print("hit the ground")
 		self.interface.getMenu().TkMenu.after(60,self.fruitFalling)
 
 	def play(self):
