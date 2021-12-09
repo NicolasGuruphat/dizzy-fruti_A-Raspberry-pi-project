@@ -53,14 +53,13 @@ class Fruit :
 		
 		fruitPosition = self.canvas.coords(self.fruitItem)
 		bowlPosition = bowl.bowlPosition
-
-		return ((bowlPosition[0] < fruitPosition[0] < ( bowlPosition[0] + bowl.bowlSize[0]) )and (fruitPosition[1] > bowlPosition[1] ))
+		return ((bowlPosition[0] < fruitPosition[0] < (bowlPosition[0] + bowl.bowlSize[0])) and (fruitPosition[1] > bowlPosition[1]))
 
 
 	
-	def verifyCollisionGround(self,taille):
+	def verifyCollisionGround(self,menuSize):
 		fruitPosition = self.canvas.coords(self.fruitItem)
-		return (fruitPosition[1]>taille[1]-self.taille )
+		return (fruitPosition[1]>menuSize[1]-self.taille )
 
 
 		
