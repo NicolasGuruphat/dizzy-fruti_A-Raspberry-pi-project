@@ -1,11 +1,11 @@
 class Score:
     def __init__(self):
-        score=0
+        self.value=0
 
     def increment(self,numberOfPoint):
-        self.score+=numberOfPoint
+        self.value+=numberOfPoint
         #This method will impact the 8x8 Matrix
 
     def decrement(self,numberOfPoint):
-        self.score-=numberOfPoint
+        self.value-=numberOfPoint
         #This method will impact the 8x8 Matrix

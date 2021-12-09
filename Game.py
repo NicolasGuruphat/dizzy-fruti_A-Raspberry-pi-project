@@ -13,16 +13,20 @@ class Game:
 		self.interface.displayMainMenu()
 		self.listFruit=[]
 		self.interface.root.TkMenu.mainloop()
+		self.score=Score
 
 	def fruitFactory(self) : 
 		self.listFruit.append(Fruit(self.interface.getMenu()))
 		self.interface.getMenu().TkMenu.after(1000,self.fruitFactory)
 			
 	def fruitFalling(self) : 
-		for i in  range (len(self.listFruit)) :
+		for i in   reversed(range(len(self.listFruit))) :
 			fruit=self.listFruit[i]
 			Fruit.moveDown(fruit,self.interface)
-			Fruit.verifyColision(fruit,self.bowl)
+			if(Fruit.verifyColision(fruit,self.bowl)):
+				self.score.increment(fruit.point)
+				self.listFruit.remove(fruit)
+				print(self.score.value)
 		self.interface.getMenu().TkMenu.after(60,self.fruitFalling)
 
 	def play(self):
@@ -39,8 +43,6 @@ class Game:
 	def win(self):
 		print("well play ! you won")
 		self.interface.displayWinMenu()
-
-
 
 
 game=Game()

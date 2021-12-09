@@ -9,6 +9,7 @@ class Fruit :
 		self.menu=menu
 		self.TkMenu=menu.TkMenu
 		self.canvas=self.menu.canvas
+		self.point=1
 		path="sprite/sprite_strawberry.png"
 		if 1 <= randomInt <= 10 : 
 			path = "sprite/sprite_strawberry.png"
@@ -56,7 +57,8 @@ class Fruit :
 			print("test there is a colision")
 			return True
 		else:
-			print("there's not a colision ")
+			#print("there's not a colision ")
+			return False
 
 
 
