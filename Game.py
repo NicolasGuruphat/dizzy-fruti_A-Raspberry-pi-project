@@ -3,7 +3,6 @@ from UI import UI
 from Bowl import Bowl
 from Fruit import Fruit
 from Score import Score
-import threading
 from time import *
 from random import randint
 
@@ -21,7 +20,9 @@ class Game:
 			
 	def fruitFalling(self) : 
 		for i in  range (len(self.listFruit)) :
-			Fruit.moveDown(self.listFruit[i],self.interface)
+			fruit=self.listFruit[i]
+			Fruit.moveDown(fruit,self.interface)
+			Fruit.verifyColision(fruit,self.bowl)
 		self.interface.getMenu().TkMenu.after(60,self.fruitFalling)
 
 	def play(self):

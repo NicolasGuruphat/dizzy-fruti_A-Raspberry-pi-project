@@ -35,7 +35,7 @@ class Fruit :
 
 
 
-		self.speed=self.taille/10
+		self.speed=12-((self.taille)/10)
 		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file=path)
 		self.canvas.image=self.imageFruit
 		self.fruitItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
@@ -46,7 +46,18 @@ class Fruit :
 
 	def moveDown(self, interface) : 
 		self.canvas.move(self.fruitItem,0,self.speed)
-	
+
+
+	def verifyColision(self,bowl):
+		
+		fruitPosition = self.canvas.coords(self.fruitItem)
+		bowlPosition = bowl.bowlPosition
+		if( (bowlPosition[0] < fruitPosition[0] < ( bowlPosition[0] + bowl.bowlSize[0]) )and (fruitPosition[1] > bowlPosition[1] )) :
+			print("test there is a colision")
+			return True
+		else:
+			print("there's not a colision ")
+
 
 
 		
