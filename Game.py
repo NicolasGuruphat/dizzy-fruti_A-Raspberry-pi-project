@@ -5,6 +5,7 @@ from Fruit import Fruit
 from Score import Score
 import threading
 from time import *
+from random import randint
 
 class Game:
 
@@ -17,7 +18,13 @@ class Game:
 
 	def fruitFactory(self) : 
 		self.listFruit.append(Fruit(self.interface.getMenu()))
-		self.interface.getMenu().TkMenu.after(3000,self.fruitFactory)		
+		
+		self.interface.getMenu().TkMenu.after(1000,self.fruitFactory)
+			
+	def fruitFalling(self) : 
+		for i in  range (len(self.listFruit)) :
+			Fruit.moveDown(self.listFruit[i],self.interface)
+		self.interface.getMenu().TkMenu.after(60,self.fruitFalling)
 
 	def play(self):
 		print("Play !")
@@ -27,7 +34,9 @@ class Game:
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
 		self.score=Score()
 		self.fruitFactory()
-		print("mainloop")	
+		self.fruitFalling()
+		print("here")
+		
 			
 
 

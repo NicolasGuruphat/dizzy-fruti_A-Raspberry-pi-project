@@ -35,16 +35,18 @@ class Fruit :
 
 
 
-
-		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file="sprite/sprite_watermelon.png")
+		self.speed=self.taille/10
+		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file=path)
 		self.canvas.image=self.imageFruit
-		self.fuitItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
+		self.fruitItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
 
 		randomInt=randint(0,menu.taille[0]-(self.taille))
 		
-		self.canvas.moveto(self.fuitItem,randomInt,0) #set random x position on top of the screen 
+		self.canvas.moveto(self.fruitItem,randomInt,0) #set random x position on top of the screen 
 
-		def moveDown(self) : 
+	def moveDown(self, interface) : 
+		self.canvas.move(self.fruitItem,0,self.speed)
+	
 
-			self.menu.canvas.move(self.bowlItem,0,20-(self.taille)/8)
 
+		
