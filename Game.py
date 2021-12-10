@@ -2,7 +2,6 @@ from tkinter import *
 from UI import UI
 from Bowl import Bowl
 from Fruit import Fruit
-from Score import Score
 from time import *
 from RaspberrySenseHat import RaspberrySenseHat
 
