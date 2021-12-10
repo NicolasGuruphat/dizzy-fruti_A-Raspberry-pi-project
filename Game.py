@@ -13,7 +13,6 @@ class Game:
 		self.interface.displayMainMenu()
 		self.listFruit=[]
 		self.interface.root.TkMenu.mainloop()
-		self.victory=False
 
 	def fruitFactory(self) :
 		if(not self.victory): 
