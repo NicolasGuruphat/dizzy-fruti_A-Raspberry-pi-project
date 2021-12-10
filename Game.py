@@ -20,8 +20,7 @@ class Game:
 			self.interface.getMenu().TkMenu.after(1000,self.fruitFactory)
 			
 	def fruitFalling(self) : 
-		for i in   reversed(range(len(self.listFruit))) :
-			fruit=self.listFruit[i]
+		for fruit in self.listFruit :
 			Fruit.moveDown(fruit,self.interface)
 			if(Fruit.verifyCollisionBowl(fruit,self.bowl)):
 				self.score.increment(fruit.point)
