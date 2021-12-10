@@ -10,30 +10,31 @@ class Fruit :
 		self.TkMenu=menu.TkMenu
 		self.canvas=self.menu.canvas
 		self.point=1
+		self.color =[0, 0, 0]
 		path="sprite/sprite_strawberry.png"
 		if 1 <= randomInt <= 10 : 
 			path = "sprite/sprite_strawberry.png"
 			self.taille = 24
-	        
+			self.color =[255, 255, 255]
 
 		if 11 <= randomInt <= 30 :
 			path = "sprite/sprite_lemon.png"
 			self.taille = 32
-	        
+			self.color =[255, 255, 255]   
 
 		if 31 <= randomInt <= 70 :
 			path = "sprite/sprite_apple.png"
 			self.taille = 48
-	       
+			self.color =[255, 255, 255]
 
 		if 71 <= randomInt <= 90 :
 			path = "sprite/sprite_orange.png"
 			self.taille = 64
-
+			self.color =[255, 255, 255]
 		if 91 <= randomInt <= 100 :
 			path = "sprite/sprite_watermelon.png"
 			self.taille = 96
-
+			self.color =[255, 255, 255]
 
 
 		self.speed=12-((self.taille)/10)
