@@ -4,7 +4,6 @@ from Bowl import Bowl
 from Fruit import Fruit
 from Score import Score
 from time import *
-from random import randint
 
 class Game:
 
@@ -13,7 +12,8 @@ class Game:
 		self.interface.displayMainMenu()
 		self.listFruit=[]
 		self.interface.root.TkMenu.mainloop()
-
+		self.victory
+		
 	def fruitFactory(self) :
 		if(not self.victory): 
 			self.listFruit.append(Fruit(self.interface.getMenu()))
