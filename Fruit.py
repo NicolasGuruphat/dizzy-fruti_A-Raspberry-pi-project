@@ -9,7 +9,7 @@ class Fruit :
 		self.menu=menu
 		self.TkMenu=menu.TkMenu
 		self.canvas=self.menu.canvas
-		self.point=63
+		self.point=1
 		path="sprite/sprite_strawberry.png"
 		if 1 <= randomInt <= 10 : 
 			path = "sprite/sprite_strawberry.png"

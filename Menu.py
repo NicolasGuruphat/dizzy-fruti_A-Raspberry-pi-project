@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, Canvas
+from tkinter import Tk, Button, Canvas, Label
 
 class Menu:
     def __init__(self,game,title):
@@ -53,7 +53,12 @@ class WinMenu(Menu):
 
     def __init__(self,game):
         super().__init__(game,"win menu")
-        
+        self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0], height=self.taille[1])
+        self.canvas.grid(row=0,column=0)
+        self.label = Label(self.canvas, text="WIN !")
+        self.label.config(font=("Courier", 250))
+        self.label.grid(row=0,column=0)
+
 class Root(Menu):
     def __init__(self,game):
         super().__init__(game,"root")
