@@ -59,6 +59,16 @@ class WinMenu(Menu):
 		self.label.config(font=("Courier", 250))
 		self.label.grid(row=0,column=0)
 
+class LooseMenu(Menu):
+
+	def __init__(self,game):
+		super().__init__(game,"win menu")
+		self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0], height=self.taille[1])
+		self.canvas.grid(row=0,column=0)
+		self.label = Label(self.canvas, text="Loose !")
+		self.label.config(font=("Courier", 250))
+		self.label.grid(row=0,column=0)
+
 class Root(Menu):
 	def __init__(self,game):
 		super().__init__(game,"root")

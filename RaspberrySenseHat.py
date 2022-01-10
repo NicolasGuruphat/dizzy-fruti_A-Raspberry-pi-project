@@ -17,12 +17,11 @@ class RaspberrySenseHat:
         O, O, O, O, O, O, O, O,
         O, O, O, O, O, O, O, O
         ]
-        self.sense.set_pixels(self.question_mark)
+        self.sense.set_pixels(self.matrix)
 
     def add(self,color, point):
         self.matrix[self.lastLed]=color
         self.lastLed+=1
-        print(self.matrix)
-        self.sense.set_pixels(self.question_mark)
+        self.sense.set_pixels(self.matrix)
 
         

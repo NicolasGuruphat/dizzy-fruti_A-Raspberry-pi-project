@@ -13,7 +13,7 @@ class Bowl:
         self.imageBowl = ImageTk.PhotoImage(master=self.TkMenu,file=path)
         self.canvas.image=self.imageBowl
         self.bowlItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
-        self.canvas.moveto(self.bowlItem,(menu.taille[0]-self.bowlSize[0])/2,menu.taille[1]-self.bowlSize[1]) #set default position 
+        self.canvas.move(self.bowlItem,(menu.taille[0]-self.bowlSize[0])/2,menu.taille[1]-self.bowlSize[1]) #set default position 
         self.bowlPosition=self.menu.canvas.coords(self.bowlItem)
         #useless ? self.menu.addComponent(self.bowlItem)
 

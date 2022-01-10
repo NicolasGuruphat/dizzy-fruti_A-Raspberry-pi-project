@@ -1,5 +1,5 @@
 from tkinter import *
-from Menu import MainMenu,GameMenu,WinMenu,Root
+from Menu import MainMenu,GameMenu,WinMenu,Root, LooseMenu
 
 class UI:
 
@@ -11,7 +11,7 @@ class UI:
 		self.mainMenu=MainMenu(game)
 		self.gameMenu=GameMenu(game)
 		self.winMenu=WinMenu(game)
-
+		self.looseMenu=LooseMenu(game)
 	def displayMainMenu(self):
 		self.menu.hide()
 		self.mainMenu.display()
@@ -29,6 +29,12 @@ class UI:
 		self.winMenu.display()
 		print("win menu displayed")
 		self.menu=self.winMenu
+
+	def displayLooseMenu(self):
+			self.menu.hide()
+			self.winMenu.display()
+			print("win menu displayed")
+			self.menu=self.looseMenu
 
 	def getMenu(self):
 		return self.menu

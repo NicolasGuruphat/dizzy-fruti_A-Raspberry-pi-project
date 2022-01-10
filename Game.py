@@ -4,20 +4,23 @@ from Bowl import Bowl
 from Fruit import Fruit
 from time import *
 from RaspberrySenseHat import RaspberrySenseHat
-
+from sense_hat import SenseHat
 class Game:
 
 	def __init__(self):
+		self.sense = SenseHat()
 		self.interface=UI(self)
 		self.interface.displayMainMenu()
 		self.listFruit=[]
 		self.interface.root.TkMenu.mainloop()
 		self.victory
+		self.life=3
 		
 	def fruitFactory(self) :
 		if(not self.victory): 
 			self.listFruit.append(Fruit(self.interface.getMenu()))
-			self.interface.getMenu().TkMenu.after(1000,self.fruitFactory)
+			self.i-=30
+			self.interface.getMenu().TkMenu.after(self.i,self.fruitFactory)
 			
 	def fruitFalling(self) : 
 		for fruit in self.listFruit :
@@ -26,18 +29,31 @@ class Game:
 				self.score+=fruit.point
 				self.SenseHat.add(fruit.color, fruit.point)
 				self.listFruit.remove(fruit)
-				print(self.score)
 				self.victory=(self.score>=64)
 			elif(Fruit.verifyCollisionGround(fruit,self.interface.menu.taille)):
 				self.listFruit.remove(fruit)
-				#print("hit the ground")
+				self.life-=1
+				print(self.life)
+				if(self.life==0):
+					self.loose()
 		if(not self.victory):
 			self.interface.getMenu().TkMenu.after(60,self.fruitFalling)
 		else :
 			self.win()
 
+	def loop(self):
+		orientation = self.sense.get_orientation()
+		pitch = orientation['pitch']
+		if pitch > 25 and pitch <=90:
+			self.bowl.move("right")
+		elif pitch<335 and pitch>270:
+			self.bowl.move("left")
+		self.interface.getMenu().TkMenu.after(5,self.loop)
+
+	
 	def play(self):
 		print("Play !")
+		self.i=3000
 		self.victory=False
 		self.score=0
 		self.SenseHat = RaspberrySenseHat()
@@ -47,12 +63,14 @@ class Game:
 		self.interface.getMenu().TkMenu.bind('<KeyPress-Right>',lambda event :self.bowl.move("right"))
 		self.fruitFactory()
 		self.fruitFalling()
-	
+		self.loop()
 
 	def win(self):
 		print("well play ! you won")
 		self.interface.displayWinMenu()
-
+	def loose(self):
+		print("you loose")
+		self.interface.displayLooseMenu()
 
 game=Game()
 
