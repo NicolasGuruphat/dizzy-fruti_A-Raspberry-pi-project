@@ -44,8 +44,16 @@ class GameMenu(Menu):
 
 	def __init__(self,game):
 		super().__init__(game,"game menu")
-		self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0], height=self.taille[1])
-		self.canvas.grid(row=0,column=0)
+		self.canvas = Canvas(self.TkMenu, bg="white", width=self.taille[0]-100, height=self.taille[1])
+		self.canvas.grid(row=0,column=1)
+		self.canvasVie= Canvas(self.TkMenu, bg="yellow", width=100, height=self.taille[1])
+		self.canvasVie.grid(row=0,column=0)
+		self.canvasVie1=Canvas(self.canvasVie, bg="green",width=100, height=self.taille[1]/3)
+		self.canvasVie1.grid(row=0,column=0)
+		self.canvasVie2=Canvas(self.canvasVie, bg="yellow",width=100, height=self.taille[1]/3)
+		self.canvasVie2.grid(row=1,column=0)
+		self.canvasVie3=Canvas(self.canvasVie, bg="red",width=100, height=self.taille[1]/3)
+		self.canvasVie3.grid(row=3,column=0)
 		#self.buttonWin= Button(self.canvas, text="win",command=lambda: game.win()) 
 		#self.buttonWin.grid(row=1,column=1)
 

@@ -32,7 +32,7 @@ class UI:
 
 	def displayLooseMenu(self):
 			self.menu.hide()
-			self.winMenu.display()
+			self.looseMenu.display()
 			print("win menu displayed")
 			self.menu=self.looseMenu
 

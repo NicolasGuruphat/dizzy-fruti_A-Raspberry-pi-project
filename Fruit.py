@@ -36,12 +36,12 @@ class Fruit :
 			self.color =[89, 255, 0]
 
 
-		self.speed=12-((self.taille)/10)
+		self.speed=13.5-((self.taille)/10)
 		self.imageFruit = ImageTk.PhotoImage(master=self.TkMenu,file=path)
 		self.canvas.image=self.imageFruit
 		self.fruitItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
 
-		randomInt=randint(0,menu.taille[0]-(self.taille))
+		randomInt=randint(0,menu.taille[0]-100-(self.taille))
 		
 		self.canvas.move(self.fruitItem,randomInt,0) #set random x position on top of the screen 
 

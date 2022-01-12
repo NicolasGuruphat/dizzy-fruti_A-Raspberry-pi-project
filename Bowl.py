@@ -10,7 +10,7 @@ class Bowl:
         self.bowlSize=[132,90]
         self.bowlPosition=[]
         path = "sprite/sprite_bowl.png"
-        self.imageBowl = ImageTk.PhotoImage(master=self.TkMenu,file=path)
+        self.imageBowl = ImageTk.PhotoImage(master=self.canvas,file=path)
         self.canvas.image=self.imageBowl
         self.bowlItem=self.canvas.create_image(0,0, anchor=NW,image = self.canvas.image)
         self.canvas.move(self.bowlItem,(menu.taille[0]-self.bowlSize[0])/2,menu.taille[1]-self.bowlSize[1]) #set default position 
@@ -20,7 +20,7 @@ class Bowl:
     def move(self,direction):
         if direction == "left" and self.canvas.coords(self.bowlItem)[0]>25:#check of the position and direction
             self.menu.canvas.move(self.bowlItem,-25,0)
-        if direction == "right" and self.canvas.coords(self.bowlItem)[0]<self.menu.taille[1]+self.bowlSize[0]/2:#check of the position and direction
+        if direction == "right" and self.canvas.coords(self.bowlItem)[0]<self.menu.taille[1]-100+self.bowlSize[0]/2:#check of the position and direction
             self.menu.canvas.move(self.bowlItem,25,0)
         self.bowlPosition=self.menu.canvas.coords(self.bowlItem)
     
